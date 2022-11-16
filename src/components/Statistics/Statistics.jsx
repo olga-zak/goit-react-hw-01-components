@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types';
 
-export const Statistics = ({ stats }) => {
+export const Statistics = ({ stats, title }) => {
   return (
     <>
       <section className="statistics">
-        <h2 className="title">Upload stats</h2>
-
+        {title && <h2 className="title">{title}</h2>}
         <ul className="stat-list">
           {stats.map(({ id, label, percentage }) => {
             return (
@@ -24,4 +23,5 @@ export const Statistics = ({ stats }) => {
 Statistics.propTypes = {
   //stats: PropTypes.array.isRequired //пропс - это массив
   stats: PropTypes.arrayOf(PropTypes.object).isRequired, //пропс - это массив объектов
+  title: PropTypes.string,
 };
