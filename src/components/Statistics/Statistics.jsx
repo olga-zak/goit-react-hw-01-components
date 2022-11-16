@@ -1,28 +1,27 @@
-export const Statistics = (props) => {
-    return (
-        <>
-            <section class="statistics">
-  <h2 class="title">Upload stats</h2>
+import PropTypes from 'prop-types';
 
-  <ul class="stat-list">
-    <li class="item">
-      <span class="label">.docx</span>
-      <span class="percentage">4%</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp3</span>
-      <span class="percentage">14%</span>
-    </li>
-    <li class="item">
-      <span class="label">.pdf</span>
-      <span class="percentage">41%</span>
-    </li>
-    <li class="item">
-      <span class="label">.mp4</span>
-      <span class="percentage">12%</span>
-    </li>
-  </ul>
-</section>
-        </>
-    )
-}
+export const Statistics = ({ stats }) => {
+  return (
+    <>
+      <section className="statistics">
+        <h2 className="title">Upload stats</h2>
+
+        <ul className="stat-list">
+          {stats.map(({ id, label, percentage }) => {
+            return (
+              <li className="item" key={id}>
+                <span className="label">{label}</span>
+                <span className="percentage">{percentage}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    </>
+  );
+};
+
+Statistics.propTypes = {
+  //stats: PropTypes.array.isRequired //пропс - это массив
+  stats: PropTypes.arrayOf(PropTypes.object).isRequired, //пропс - это массив объектов
+};
