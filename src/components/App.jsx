@@ -1,10 +1,9 @@
+// eslint-disable-next-line
 import styles from './Common.module.css';
 import { Profile } from './Profile/Profile';
 import user from '../data/user.json';
 import { Statistics } from './Statistics/Statistics';
 import data from '../data/data.json';
-
-console.log(styles);
 
 export const App = () => {
   return (
