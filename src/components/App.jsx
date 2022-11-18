@@ -1,3 +1,4 @@
+import styles from './Common.module.css';
 import { Profile } from './Profile/Profile';
 import user from '../data/user.json';
 import { Statistics } from './Statistics/Statistics';
@@ -13,9 +14,7 @@ export const App = () => {
         avatar={user.avatar}
         stats={user.stats}
       />
-      <Statistics stats={data}
-        title="Upload stats"
-      />
+      <Statistics stats={data} title="Upload stats" />
     </>
 
     // <div
