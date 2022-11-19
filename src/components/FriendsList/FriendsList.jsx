@@ -1,6 +1,7 @@
 import { FriendsListItem } from 'components/FriendsListItem/FriendsListItem';
 
 export const FriendsList = ({ friends }) => {
+  //console.log(...friends);
   return (
     <>
       <ul className="friend-list">
