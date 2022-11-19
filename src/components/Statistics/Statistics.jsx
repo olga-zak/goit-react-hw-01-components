@@ -10,7 +10,7 @@ export const Statistics = ({ stats, title }) => {
             return (
               <li className="item" key={id}>
                 <span className="label">{label}</span>
-                <span className="percentage">{percentage}</span>
+                <span className="percentage">{percentage}%</span>
               </li>
             );
           })}
@@ -22,6 +22,12 @@ export const Statistics = ({ stats, title }) => {
 
 Statistics.propTypes = {
   //stats: PropTypes.array.isRequired //пропс - это массив
-  stats: PropTypes.arrayOf(PropTypes.object).isRequired, //пропс - это массив объектов
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    }).isRequired
+  ).isRequired, //пропс - это массив объектов
   title: PropTypes.string,
 };
