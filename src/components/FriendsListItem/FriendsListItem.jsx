@@ -1,35 +1,23 @@
-export const FriendsListItem = ({ avatar, name, isOnline, id }) => {
+import PropTypes from 'prop-types';
+
+import { Item } from './FriendsListItem.styled';
+import { Name } from './FriendsListItem.styled';
+import { Avatar } from './FriendsListItem.styled';
+import { Online } from './FriendsListItem.styled';
+import { Offline } from './FriendsListItem.styled';
+
+export const FriendsListItem = ({ avatar, name, isOnline }) => {
   return (
-    <>
-      <li className="item" key={id}>
-        {isOnline === true ? (
-          <span className="status">green</span>
-        ) : (
-          <span className="status">red</span>
-        )}
-        <img className="avatar" src={avatar} alt="User avatar" width="48" />
-        <p className="name">{name}</p>
-      </li>
-    </>
+    <Item>
+      {isOnline === true ? <Online></Online> : <Offline></Offline>}
+      <Avatar src={avatar} alt="User avatar" width="48" />
+      <Name>{name}</Name>
+    </Item>
   );
 };
 
-// {
-//   friends.map(friend => {
-//     return (
-//       <li className="item" key={friend.id}>
-//         {/* В зависимости от пропа isOnline, должен меняться цвет фона
-//             span.status. Это можно сделать через разный CSS-класс или Styled
-//             Components. */}
-//         <span className="status">{friend.isOnline}status</span>
-//         <img
-//           className="avatar"
-//           src={friend.avatar}
-//           alt="User avatar"
-//           width="48"
-//         />
-//         <p className="name">{friend.name}</p>
-//       </li>
-//     );
-//   });
-// }
+FriendsListItem.propTypes = {
+  avatar: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  isOnline: PropTypes.bool.isRequired,
+};
